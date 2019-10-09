@@ -14,7 +14,7 @@ now = datetime.datetime.now()
 
 port = 587
 smtp_server = 'smtp.gmail.com'
-my_address = input("Your email:\t\t")
+my_address = input("Your email:\t\t\t")
 password = input("Enter your password:\t\t") # Not necessary if running locally, of course
 cc = 'irf229@nyu.edu'
 
