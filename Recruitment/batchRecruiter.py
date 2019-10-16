@@ -15,8 +15,8 @@ now = datetime.datetime.now()
 
 port = 587
 smtp_server = 'smtp.gmail.com'
-my_address = input("Your email:\t\t")
-password = input("Password:\t\t")
+my_address = input("Enter your email address\n")
+password = input("Enter your password\n")
 cc = 'irf229@nyu.edu'
 
 emailSetup = smtplib.SMTP(host = smtp_server, port = port)
@@ -82,11 +82,17 @@ for index, participant in enumerate(all_participants['Participant Name']):
         emailSetup.sendmail(from_addr= my_address, to_addrs = contact_email, msg = msg.as_string())
 
         print("Contacting " + contact_first_name)
-        all_participants.loc[index, 'Contacted'] = now.strftime('%x') + ' ' + now.strftime('%X')
+        all_participants.loc[index, 'Contacted'] = str(now.strftime('%x')) + ' ' + str(now.strftime('%X'))
 
         sleep(5)
 
 emailSetup.quit()
+
+for index, p in enumerate(all_participants['Contacted']):
+
+    all_participants['Contacted'].loc[index] = str(p)
+    all_participants['Date'].loc[index] = str(p)
+
 
 header_list = []
 
