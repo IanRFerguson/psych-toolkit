@@ -15,9 +15,9 @@ now = datetime.datetime.now()
 
 port = 587
 smtp_server = 'smtp.gmail.com'
-my_address = input("Enter your email address\n")
-password = input("Enter your password\n")
-cc = 'irf229@nyu.edu'
+my_address = input("Email:\t\t")
+password = input("Password:\t")
+cc = # CC
 
 emailSetup = smtplib.SMTP(host = smtp_server, port = port)
 emailSetup.ehlo()
@@ -88,10 +88,17 @@ for index, participant in enumerate(all_participants['Participant Name']):
 
 emailSetup.quit()
 
-for index, p in enumerate(all_participants['Contacted']):
+for index, contacted in enumerate(all_participants['Contacted']):
 
-    all_participants['Contacted'].loc[index] = str(p)
-    all_participants['Date'].loc[index] = str(p)
+    all_participants['Contacted'].loc[index] = str(contacted)
+
+for index, date in enumerate(all_participants['Date']):
+
+    all_participants['Date'].loc[index] = str(date)
+
+for index, time in enumerate(all_participants['Time']):
+
+    all_participants['Time'].loc[index] = str(time)
 
 
 header_list = []
