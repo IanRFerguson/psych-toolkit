@@ -15,9 +15,9 @@ now = datetime.datetime.now()
 
 port = 587
 smtp_server = 'smtp.gmail.com'
-my_address = input("Email:\t\t")
-password = input("Password:\t")
-cc = # CC
+my_address = # INPUT EMAIL ADDRESS !
+password = # INPUT EMAIL PASSWORD !
+cc = # OPTIONAL
 
 emailSetup = smtplib.SMTP(host = smtp_server, port = port)
 emailSetup.ehlo()
@@ -27,8 +27,8 @@ emailSetup.login(user = my_address, password = password)
 all_participants = pd.read_excel('participantList.xlsx')
 
 all_participants['Contacted'].fillna(0, inplace = True)
-all_participants['Date'].fillna('None Specified', inplace = True)
-all_participants['Time'].fillna('None Specified', inplace = True)
+all_participants['Date'].fillna(' ', inplace = True)
+all_participants['Time'].fillna(' ', inplace = True)
 all_participants['Responded'].fillna(' ', inplace = True)
 all_participants['Notes'].fillna(' ', inplace = True)
 
@@ -107,9 +107,13 @@ for col in all_participants:
     pattern = {'header':col}
     header_list.append(pattern)
 
+start = 'A1'
+end = 'G' + '' + str(len(all_participants['Participant Name']) + 1)
+tableSize = start + ':' + end
+
 manifest = xlsxwriter.Workbook('participantList.xlsx')
 main_sheet = manifest.add_worksheet('Participant Log')
 main_sheet.set_column('A:G', 28)
-main_sheet.add_table('A1:G31', {'data': all_participants.stack(), 'columns':header_list})
+main_sheet.add_table(tableSize, {'data': all_participants.stack(), 'columns':header_list})
 
 manifest.close()
