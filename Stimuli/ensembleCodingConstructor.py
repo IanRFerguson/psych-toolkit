@@ -6,8 +6,7 @@ import random
 import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
-from PIL import Image
-from PIL import ImageOps
+from PIL import Image, ImageOps
 from time import sleep
 
 matplotlib.use('Agg')
