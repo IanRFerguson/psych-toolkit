@@ -58,6 +58,9 @@ def constructArray(hispanic, white, output):
         for i in range(1, (col*row)+1):
             border = (615,85,615,250)
             face = Image.open(faces[faceIndex])
+            
+            # NOTE: Cropping is optional here - this script is optimized for Chicago Face Database male images
+            
             face = ImageOps.crop(face, border)
             ax = fig.add_subplot(row, col, i)
             ax.set_xticks([])
