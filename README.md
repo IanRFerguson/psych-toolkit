@@ -3,7 +3,8 @@ Tools for participant recruitment, data analysis, etc. in academic psychology
 
 ## Recruitment
 ### automatedEmailReminder.py
-- Allows user to quickly contact multiple participants with different study times
+- Allows user to quickly send reminders to multiple participants with different study times
+- Different messages for weekday / weekend study times
 - Note: Requires your email and password information to be updated
 
 ### batchRecruiter.py
